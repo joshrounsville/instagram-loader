@@ -15,9 +15,8 @@ var account = user;
 var count = -1;
 var photos = [];
 
-
 var animationDelay = 5000;
-var action = 'lightSpeedIn';
+var action = 'fadeInUp';
 
 // action options: flash, bounce, shake, tada, swing, wobble, wiggle, pulse 
 // fade actions: fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
@@ -25,7 +24,7 @@ var action = 'lightSpeedIn';
 // rotating actions: rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
 
 
-function getNextPhoto() {
+var getNextPhoto = function() {
   // set interval counter
   var photoCount = 0;
   // determine total number of Instagram photos
@@ -64,6 +63,23 @@ function getNextPhoto() {
 
 }
 
+var zoom = function() {
+
+  $('.animate').on('click', function() {
+    var picture = $('img', this).attr('src');
+    $('<div class="big hide"><img src="' + picture + '"></div>').appendTo('body').fadeIn('fast');
+
+    $('.big').on('click', function() {
+      $(this).fadeOut(function() {
+        $(this).remove();
+      });
+    });
+
+  });
+  
+}
+
+
 // get Instagram photos
 $.getJSON('https://api.instagram.com/v1/users/' + account.user.id+ '/media/recent?access_token=' + account.access_token + '&count=' + count + '&callback=?',
   function(data) {
@@ -82,5 +98,17 @@ $.getJSON('https://api.instagram.com/v1/users/' + account.user.id+ '/media/recen
     });
 
   getNextPhoto();
+  zoom();
 
 });
+
+
+
+
+
+
+
+
+
+
+
