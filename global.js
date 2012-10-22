@@ -2,12 +2,12 @@
 var user = {
  'access_token':'11843940.f59def8.3b00c1d86a124e3b8120e1623a38ad37',
  'user': {
-    'username':'joshrounsville',
+    'username':'thebrigade',
     'bio':'',
-    'website':'http:\/\/www.joshuarounsville.com',
+    'website':'http:\/\/www.thisisthebrigade.com',
     'profile_picture':'http:\/\/images.instagram.com\/profiles\/profile_11843940_75sq_1340516738.jpg',
-    'full_name':'Josh Rounsville',
-    'id':'11843940'
+    'full_name':'The Brigade',
+    'id':'203949578'
   }
 };
 
@@ -87,9 +87,9 @@ $.getJSON('https://api.instagram.com/v1/users/' + account.user.id+ '/media/recen
     $.each(data.data, function(i, image) {
 
       // if photo is one of the first 10...
-      if ( i < 10 ) {
+      if ( i < 15 ) {
         // wrap it in a div and add it to .instagram
-        $('<div class="animate animated '+ action +'"><img src="'+ image.images.standard_resolution.url +'" /></div>').appendTo('.instagram').css('visibility', 'visible');
+        $('<div class="animate animated '+ action +'"><img src="'+ image.images.standard_resolution.url +'" /></div>').appendTo('.instagram').delay(200).css('visibility', 'visible');
       } else {
         // if not, add it to the photo array
         photos.push(image.images.standard_resolution.url);
