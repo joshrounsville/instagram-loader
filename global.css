@@ -1,0 +1,48 @@
+body {
+  background: #f8f8f8;
+}
+
+h1 {
+  position: relative;
+}
+
+.left {
+  float: left;
+  margin-right: 10px;
+}
+
+.animate {
+  color: #222;
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #777;
+  margin: 10px;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  float: left;
+  position: relative;
+  visibility: hidden;
+
+  box-shadow: 0 0 1px #999;
+  -webkit-animation-duration: .9s;
+  //-webkit-animation-delay: 1s;
+}
+
+.animate:after {
+  content: '';
+  display: block;
+  background: url(ajax-loader.gif) no-repeat 0 0;
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -16px 0 0 -16px;
+  z-index: -1;
+}
+
+img {
+  height: auto;
+  width: 200px;
+}
