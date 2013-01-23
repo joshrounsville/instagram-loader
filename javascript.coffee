@@ -8,7 +8,7 @@ user =
     'full_name':'The Brigade',
     'id':'203949578'
 account = user
-count = -1
+count = 25
 photos = []
 show = 15
 animationDelay = 5000
@@ -20,7 +20,7 @@ getNextPhoto = ->
   interval = setInterval ->
     random = Math.round(Math.random()*show)
     target = $('.image').eq(random).find('a')
-    if arrayLength > photoCount
+    if arrayLength > photoCount + 1
       $(target).fadeOut ->
         $(this).attr('href', photos[photoCount].attr('data-link'))
         $(this).find('img').attr('src', photos[photoCount].attr('src'))

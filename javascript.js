@@ -16,7 +16,7 @@
 
   account = user;
 
-  count = -1;
+  count = 25;
 
   photos = [];
 
@@ -34,7 +34,7 @@
       var random, target;
       random = Math.round(Math.random() * show);
       target = $('.image').eq(random).find('a');
-      if (arrayLength > photoCount) {
+      if (arrayLength > photoCount + 1) {
         $(target).fadeOut(function() {
           $(this).attr('href', photos[photoCount].attr('data-link'));
           $(this).find('img').attr('src', photos[photoCount].attr('src'));
